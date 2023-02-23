@@ -85,11 +85,5 @@ public class Elements {
         $("#rightClickBtn").closest(".mt-4").sibling(0).$(byText("Click Me")).click();
         $("#dynamicClickMessage").shouldHave(text("dynamic"));
 
-
-//<button id="eRH8o" type="button" class="btn btn-primary">Click Me</button>
-
-
-
-
     }
 }
