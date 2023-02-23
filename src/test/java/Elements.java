@@ -5,7 +5,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class privet {
+public class Elements {
     @Test
     void textBoxTest() {
 
