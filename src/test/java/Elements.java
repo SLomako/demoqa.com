@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
@@ -71,7 +72,23 @@ public class Elements {
         $("[class=rt-tbody]").shouldHave(text("Lomako"));
 
 
+
+    }
+
+    @Test
+    void button() {
+        $("#item-4").click();
+        //$("#doubleClickBtn").doubleClick();
+        //$("#doubleClickMessage").shouldHave(text("double"));
+        //$("#rightClickBtn").contextClick();
+        //$("#rightClickMessage").shouldHave(text("right"));
+        $("#rightClickBtn").closest(".mt-4").sibling(0).$(byText("Click Me")).click();
+        $("#dynamicClickMessage").shouldHave(text("dynamic"));
         sleep(4000);
+
+//<button id="eRH8o" type="button" class="btn btn-primary">Click Me</button>
+
+
 
 
     }
