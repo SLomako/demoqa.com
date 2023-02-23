@@ -5,11 +5,15 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 
+
 public class Elements {
     @Test
     void textBoxTest() {
 
-        open("https://demoqa.com/text-box");
+        open("https://demoqa.com/");
+        $("[viewBox='0 0 448 512']").scrollIntoView(true);
+        $("[viewBox='0 0 448 512']").click();
+        $("[id=item-0]").click();
         $("[Id=userName]").setValue("Sergei Lomako");
         $("[Id=userEmail]").setValue("lomakosv@gmail.com");
         $("[Id=currentAddress]").setValue("null");
