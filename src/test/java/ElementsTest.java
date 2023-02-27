@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.withTagAndText;
 import static com.codeborne.selenide.Selenide.*;
 
 
@@ -84,6 +85,14 @@ public class ElementsTest {
         $("#rightClickMessage").shouldHave(text("right"));
         $("#rightClickBtn").closest(".mt-4").sibling(0).$(byText("Click Me")).click();
         $("#dynamicClickMessage").shouldHave(text("dynamic"));
+
+    }
+
+    @Test
+    void linksTest() {
+        $("#item-5").click();
+        $("#created").click();
+        sleep(4000);
 
     }
 }
