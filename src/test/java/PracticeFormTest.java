@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class PracticeForm {
+public class PracticeFormTest {
 
     @BeforeAll
     static void beforeAll() {

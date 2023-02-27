@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 
-public class Elements {
+public class ElementsTest {
 
 
     @BeforeAll
@@ -19,7 +19,7 @@ public class Elements {
         $("[viewBox='0 0 448 512']").click();
     }
     @Test
-    void textBoxTest() {
+    void textBox() {
 
 
         $("[id=item-0]").click();
@@ -33,7 +33,7 @@ public class Elements {
     }
 
     @Test
-    void checkBoxTest() {
+    void checkBox() {
 
 
         $("[id=item-1]").click();
@@ -43,7 +43,7 @@ public class Elements {
     }
 
     @Test
-    void radioButtonTest() {
+    void radioButton() {
 
 
         $("[id=item-2]").click();
@@ -69,7 +69,7 @@ public class Elements {
         $("#department").setValue("null");
         $("#submit").click();
         $("#searchBox").setValue(lastname);
-        $("[class=rt-tbody]").shouldHave(text("Lomako"));
+        $(".rt-tbody").shouldHave(text("Lomako"));
 
 
 
