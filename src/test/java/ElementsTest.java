@@ -1,27 +1,23 @@
-
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withTagAndText;
 import static com.codeborne.selenide.Selenide.*;
-
-
 
 public class ElementsTest {
 
 
     @BeforeAll
     static void beforeAll() {
-
+        Configuration.browserSize = "1920x1080";
         open("https://demoqa.com/");
-        $("[viewBox='0 0 448 512']").scrollIntoView(true);
-        $("[viewBox='0 0 448 512']").click();
+        $x("//div[@class='card-body']").click();
     }
+
     @Test
     void textBox() {
-
 
         $("[id=item-0]").click();
         $("[Id=userName]").setValue("Sergei Lomako");
@@ -71,7 +67,6 @@ public class ElementsTest {
         $("#submit").click();
         $("#searchBox").setValue(lastname);
         $(".rt-tbody").shouldHave(text("Lomako"));
-
 
 
     }
