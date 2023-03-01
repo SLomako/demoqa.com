@@ -24,7 +24,6 @@ public class ElementsTest {
         $("[Id=userEmail]").setValue("lomakosv@gmail.com");
         $("[Id=currentAddress]").setValue("null");
         $("[Id=permanentAddress]").setValue("null");
-        $("[Id=submit]").scrollIntoView(true);
         $("[Id=submit]").click();
         $("[Id=output]").shouldHave(text("Lomako"), text("@"));
     }
