@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ElementsTest {
 
-
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
@@ -19,55 +18,47 @@ public class ElementsTest {
     @Test
     void textBox() {
 
-        $("[id=item-0]").click();
-        $("[Id=userName]").setValue("Sergei Lomako");
-        $("[Id=userEmail]").setValue("lomakosv@gmail.com");
-        $("[Id=currentAddress]").setValue("null");
-        $("[Id=permanentAddress]").setValue("null");
-        $("[Id=submit]").click();
-        $("[Id=output]").shouldHave(text("Lomako"), text("@"));
+        $("#item-0").click();
+        $("#userName").setValue("Sergei Lomako");
+        $("#userEmail").setValue("lomakosv@gmail.com");
+        $("#currentAddress").setValue("null");
+        $("#permanentAddress").setValue("null");
+        $("#submit").click();
+        $("#output").shouldHave(text("Lomako"), text("@"));
     }
 
     @Test
     void checkBox() {
 
-
-        $("[id=item-1]").click();
-        $("[class=rct-checkbox]").click();
-        $("[class='display-result mt-4']").shouldHave(text("home"));
-
+        $("#item-1").click();
+        $(".rct-checkbox").click();
+        $("#result").shouldHave(text("home"));
     }
 
     @Test
     void radioButton() {
 
-
-        $("[id=item-2]").click();
+        $("#item-2").click();
         $("[for=yesRadio]").click();
-        $("[class='text-success']").shouldHave(text("Yes"));
+        $(".text-success").shouldHave(text("Yes"));
         $("[for=impressiveRadio]").click();
-        $("[class='text-success']").shouldHave(text("Impressive"));
-
+        $(".text-success").shouldHave(text("Impressive"));
     }
 
     @Test
     void webTables() {
 
-        String lastname = "Lomako";
-
-        $("[id=item-3]").click();
+        $("#item-3]").click();
         $("#addNewRecordButton").click();
         $("#firstName").setValue("Sergei");
-        $("#lastName").setValue(lastname);
+        $("#lastName").setValue("Lomako");
         $("#userEmail").setValue("lomakosv@gmail.com");
         $("#age").setValue("36");
         $("#salary").setValue("0");
         $("#department").setValue("null");
         $("#submit").click();
-        $("#searchBox").setValue(lastname);
+        $("#searchBox").setValue("Lomako");
         $(".rt-tbody").shouldHave(text("Lomako"));
-
-
     }
 
     @Test
