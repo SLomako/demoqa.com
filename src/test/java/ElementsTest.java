@@ -1,12 +1,16 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverConditions.url;
 
-public class ElementsTest {
+
+public class ElementsTest{
 
     @BeforeAll
     static void beforeAll() {
@@ -48,7 +52,9 @@ public class ElementsTest {
     @Test
     void webTables() {
 
-        $("#item-3]").click();
+        $("#item-3").click();
+        $("#searchBox").setValue("Lomako");
+        $(".rt-tbody").shouldNotHave(text("Lomako"));
         $("#addNewRecordButton").click();
         $("#firstName").setValue("Sergei");
         $("#lastName").setValue("Lomako");
@@ -68,16 +74,28 @@ public class ElementsTest {
         $("#doubleClickMessage").shouldHave(text("double"));
         $("#rightClickBtn").contextClick();
         $("#rightClickMessage").shouldHave(text("right"));
-        $("#rightClickBtn").closest(".mt-4").sibling(0).$(byText("Click Me")).click();
+        $x("//button[text()='Click Me']").click();
         $("#dynamicClickMessage").shouldHave(text("dynamic"));
 
     }
 
     @Test
     void linksTest() {
-        $("#item-5").click();
-        $("#created").click();
+        $x("//span[text()='Links']").click();
+        $x("//a[@id='simpleLink']").click();
+
+        //$x("//a[@id='dynamicLink']").click();
+        SelenideElement sE = $x("//a[@href='https://demoqa.com']");
+        System.out.println(sE);
+
         sleep(4000);
 
     }
+
+    @Test
+    void linksTest1() {
+        $x("//span[text()='Links']").click();
+        $x("//a[@id='created']").click();
+    }
 }
+
