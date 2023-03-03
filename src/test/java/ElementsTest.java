@@ -1,13 +1,20 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import dev.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class ElementsTest{
@@ -82,20 +89,24 @@ public class ElementsTest{
     @Test
     void linksTest() {
         $x("//span[text()='Links']").click();
-        $x("//a[@id='simpleLink']").click();
+        ElementsCollection href = $$x("//div[@id='linkWrapper']//a[@href]");
+        List<String> links = new ArrayList<>();
 
-        //$x("//a[@id='dynamicLink']").click();
-        SelenideElement sE = $x("//a[@href='https://demoqa.com']");
-        System.out.println(sE);
+        for (int i = 0; i < 2; i++) {
+            links.add(href.get(i).getAttribute("href"));
+        }
+        for (int i = 0; i < links.size(); i++) {
+            String linksUrl = links.get(i);
+            open(linksUrl);
+            String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
+            assertEquals(currentUrl, linksUrl);
+        }
+        int i = 0;
+
 
         sleep(4000);
 
     }
 
-    @Test
-    void linksTest1() {
-        $x("//span[text()='Links']").click();
-        $x("//a[@id='created']").click();
-    }
 }
 
