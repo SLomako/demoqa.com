@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.Keys;
+import pages.components.PracticalFormResults;
 
 import java.io.File;
 
@@ -10,6 +11,9 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormPage {
     private final static String TITLE_TEXT = "Practice Form";
+
+    PracticalFormResults  PracticalFormResults = new PracticalFormResults();
+
 
     public PracticeFormPage openPage() {
 
@@ -85,6 +89,18 @@ public class PracticeFormPage {
         $(byText(state)).click();
         $("#city").click();
         $(byText(city)).click();
+
+        return this;
+    }
+
+    public PracticeFormPage clickSubmit() {
+        $("#submit").click();
+
+        return this;
+    }
+
+    public PracticeFormPage shouldHaveResults(String key, String value){
+        PracticalFormResults.verifeResults(key, value);
 
         return this;
     }
