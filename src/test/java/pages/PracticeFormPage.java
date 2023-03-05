@@ -14,7 +14,6 @@ public class PracticeFormPage {
 
     PracticalFormResults PracticalFormResults = new PracticalFormResults();
 
-
     public PracticeFormPage openPage() {
         $x("//div[@class='card-body']/h5[text()='Forms']").click();
         $x("//span[@class='text'][text()='Practice Form']").click();
@@ -22,7 +21,6 @@ public class PracticeFormPage {
 
         return this;
     }
-
 
     public PracticeFormPage removeBanners() {
         executeJavaScript("$('#fixedban').remove()");
@@ -91,7 +89,6 @@ public class PracticeFormPage {
 
     public PracticeFormPage setAddres(String address) {
         $("#currentAddress").setValue(address);
-
 
         return this;
     }
