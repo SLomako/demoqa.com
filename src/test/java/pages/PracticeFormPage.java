@@ -31,59 +31,59 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setFirstName(String value) {
-        $("#firstName").setValue(value);
+    public PracticeFormPage setFirstName(String name) {
+        $("#firstName").setValue(name);
 
         return this;
     }
 
-    public PracticeFormPage setLastName(String value) {
-        $("#lastName").setValue(value);
+    public PracticeFormPage setLastName(String lastName) {
+        $("#lastName").setValue(lastName);
 
         return this;
     }
 
-    public PracticeFormPage setEmail(String value) {
-        $("#userEmail").setValue(value);
+    public PracticeFormPage setEmail(String email) {
+        $("#userEmail").setValue(email);
 
         return this;
     }
 
-    public PracticeFormPage setGenter(String value) {
-        $("#genterWrapper").$(byText(value)).click();
+    public PracticeFormPage setGenter(String genter) {
+        $("#genterWrapper").$(byText(genter)).click();
 
         return this;
     }
 
-    public PracticeFormPage setNumberPhone(String value) {
-        $("#userNumber").setValue(value);
+    public PracticeFormPage setNumberPhone(String numPhone) {
+        $("#userNumber").setValue(numPhone);
 
         return this;
     }
 
-    public PracticeFormPage setDateOfBirth(String value) {
+    public PracticeFormPage setDateOfBirth(String dataOfBerth) {
         $("#dateOfBirthInput").sendKeys(Keys.CONTROL + "a");
         $("#dateOfBirthInput").sendKeys(Keys.SPACE);
         $("#dateOfBirthInput").sendKeys(Keys.LEFT);
-        $("#dateOfBirthInput").setValue(value).pressEnter();
+        $("#dateOfBirthInput").setValue(dataOfBerth).pressEnter();
 
         return this;
     }
 
-    public PracticeFormPage setSubjects(String value) {
-        $("#subjectsInput").setValue(value).pressEnter();
+    public PracticeFormPage setSubjects(String subjects) {
+        $("#subjectsInput").setValue(subjects).pressEnter();
 
         return this;
     }
 
-    public PracticeFormPage setHobbies(String value) {
-        $("#hobbiesWrapper").$(byText(value)).click();
+    public PracticeFormPage setHobbies(String hobbies) {
+        $("#hobbiesWrapper").$(byText(hobbies)).click();
 
         return this;
     }
 
-    public PracticeFormPage setUploudPicture(String value) {
-        File prtSC = new File(value);
+    public PracticeFormPage setUploudPicture(String path) {
+        File prtSC = new File(path);
         $("#uploadPicture").uploadFile(prtSC);
 
         return this;
