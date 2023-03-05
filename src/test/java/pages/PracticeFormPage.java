@@ -12,13 +12,19 @@ import static com.codeborne.selenide.Selenide.*;
 public class PracticeFormPage {
     private final static String TITLE_TEXT = "Practice Form";
 
-    PracticalFormResults  PracticalFormResults = new PracticalFormResults();
+    PracticalFormResults PracticalFormResults = new PracticalFormResults();
 
 
     public PracticeFormPage openPage() {
-
-        open("https://demoqa.com/automation-practice-form");
+        $x("//div[@class='card-body']/h5[text()='Forms']").click();
+        $x("//span[@class='text'][text()='Practice Form']").click();
         $(".main-header").shouldHave(text(TITLE_TEXT));
+
+        return this;
+    }
+
+
+    public PracticeFormPage removeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
@@ -83,23 +89,33 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setAddresStateCity(String address, String state, String city) {
+    public PracticeFormPage setAddres(String address) {
         $("#currentAddress").setValue(address);
+
+
+        return this;
+    }
+
+    public PracticeFormPage setState(String state) {
         $("#state").click();
         $(byText(state)).click();
+
+        return this;
+    }
+
+    public PracticeFormPage setCity(String city) {
         $("#city").click();
         $(byText(city)).click();
 
         return this;
     }
 
-    public PracticeFormPage clickSubmit() {
+    public void clickSubmit() {
         $("#submit").click();
 
-        return this;
     }
 
-    public PracticeFormPage shouldHaveResults(String key, String value){
+    public PracticeFormPage shouldHaveResults(String key, String value) {
         PracticalFormResults.verifeResults(key, value);
 
         return this;

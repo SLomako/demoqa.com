@@ -3,14 +3,14 @@ package test;
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
 
-import static com.codeborne.selenide.Selenide.$;
 
 public class PracticeFormTest extends TestBase {
     PracticeFormPage PracticeFormPage = new PracticeFormPage();
 
     @Test
     void fillStudentRegistrationForm() {
-        PracticeFormPage.openPage().setFirstName("Sergei")
+        PracticeFormPage.openPage().removeBanners()
+                .setFirstName("Sergei")
                 .setLastName("Lomako")
                 .setEmail("lomakosv@gmail.com")
                 .setGenter("Male")
@@ -20,7 +20,9 @@ public class PracticeFormTest extends TestBase {
                 .setHobbies("Sports")
                 .setHobbies("Music")
                 .setUploudPicture("src/test/resources/pictures/prt_sc.png")
-                .setAddresStateCity("null", "NCR", "Delhi")
+                .setAddres("null")
+                .setState("NCR")
+                .setCity("Delhi")
                 .clickSubmit();
 
         PracticeFormPage.shouldHaveResults("Student Name", "Sergei Lomako")
