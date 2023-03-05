@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class PracticeFormPage {
     private final static String TITLE_TEXT = "Practice Form";
 
-    PracticalFormResults PracticalFormResults = new PracticalFormResults();
+    PracticalFormResults practicalFormResults = new PracticalFormResults();
 
     public PracticeFormPage openPage() {
         $x("//div[@class='card-body']/h5[text()='Forms']").click();
@@ -113,7 +113,7 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage shouldHaveResults(String key, String value) {
-        PracticalFormResults.verifeResults(key, value);
+        practicalFormResults.verifeResults(key, value);
 
         return this;
     }

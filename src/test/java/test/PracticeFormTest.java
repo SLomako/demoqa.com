@@ -5,11 +5,11 @@ import pages.PracticeFormPage;
 
 
 public class PracticeFormTest extends TestBase {
-    PracticeFormPage PracticeFormPage = new PracticeFormPage();
+    PracticeFormPage practiceFormPage = new PracticeFormPage();
 
     @Test
     void fillStudentRegistrationForm() {
-        PracticeFormPage.openPage().removeBanners()
+        practiceFormPage.openPage().removeBanners()
                 .setFirstName("Sergei")
                 .setLastName("Lomako")
                 .setEmail("lomakosv@gmail.com")
@@ -25,7 +25,7 @@ public class PracticeFormTest extends TestBase {
                 .setCity("Delhi")
                 .clickSubmit();
 
-        PracticeFormPage.shouldHaveResults("Student Name", "Sergei Lomako")
+        practiceFormPage.shouldHaveResults("Student Name", "Sergei Lomako")
                 .shouldHaveResults("Student Email", "lomakosv@gmail.com")
                 .shouldHaveResults("Gender", "Male")
                 .shouldHaveResults("Mobile", "0123456789")
