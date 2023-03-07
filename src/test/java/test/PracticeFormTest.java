@@ -13,7 +13,7 @@ public class PracticeFormTest extends TestBase {
                 .setFirstName("Sergei")
                 .setLastName("Lomako")
                 .setEmail("lomakosv@gmail.com")
-                .setGenter("Male")
+                .setGender("Male")
                 .setNumberPhone("0123456789")
                 .setSubjects("English")
                 .setDateOfBirth("11.16.1986")

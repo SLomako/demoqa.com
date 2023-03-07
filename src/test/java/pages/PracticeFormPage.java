@@ -16,7 +16,7 @@ public class PracticeFormPage {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
-            genterWrapperInput = $("#genterWrapper"),
+            genderWrapperInput = $("#genterWrapper"),
             userNumberPhoneInput = $("#userNumber"),
             subjectsInput = $("#subjectsInput"),
             hobbiesWrapperInput = $("#hobbiesWrapper"),
@@ -63,8 +63,8 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setGenter(String genter) {
-        genterWrapperInput.$(byText(genter)).click();
+    public PracticeFormPage setGender(String genter) {
+        genderWrapperInput.$(byText(genter)).click();
 
         return this;
     }
