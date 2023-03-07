@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 import pages.components.PracticalFormResults;
 
@@ -11,6 +12,20 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormPage {
     private final static String TITLE_TEXT = "Practice Form";
+    private final SelenideElement
+            firstNameInput = $("#firstName"),
+            lastNameInput = $("#lastName"),
+            userEmailInput = $("#userEmail"),
+            genterWrapperInput = $("#genterWrapper"),
+            userNumberPhoneInput = $("#userNumber"),
+            subjectsInput = $("#subjectsInput"),
+            hobbiesWrapperInput = $("#hobbiesWrapper"),
+            uploadPictureInput = $("#uploadPicture"),
+            currentAddressInput = $("#currentAddress"),
+            stateInput = $("#state"),
+            cityInput = $("#city"),
+            submitInput = $("#submit");
+
 
     PracticalFormResults practicalFormResults = new PracticalFormResults();
 
@@ -30,31 +45,31 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage setFirstName(String name) {
-        $("#firstName").setValue(name);
+        firstNameInput.setValue(name);
 
         return this;
     }
 
     public PracticeFormPage setLastName(String lastName) {
-        $("#lastName").setValue(lastName);
+        lastNameInput.setValue(lastName);
 
         return this;
     }
 
     public PracticeFormPage setEmail(String email) {
-        $("#userEmail").setValue(email);
+        userEmailInput.setValue(email);
 
         return this;
     }
 
     public PracticeFormPage setGenter(String genter) {
-        $("#genterWrapper").$(byText(genter)).click();
+        genterWrapperInput.$(byText(genter)).click();
 
         return this;
     }
 
     public PracticeFormPage setNumberPhone(String numPhone) {
-        $("#userNumber").setValue(numPhone);
+        userNumberPhoneInput.setValue(numPhone);
 
         return this;
     }
@@ -69,46 +84,46 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage setSubjects(String subjects) {
-        $("#subjectsInput").setValue(subjects).pressEnter();
+        subjectsInput.setValue(subjects).pressEnter();
 
         return this;
     }
 
     public PracticeFormPage setHobbies(String hobbies) {
-        $("#hobbiesWrapper").$(byText(hobbies)).click();
+        hobbiesWrapperInput.$(byText(hobbies)).click();
 
         return this;
     }
 
     public PracticeFormPage setUploudPicture(String path) {
         File prtSC = new File(path);
-        $("#uploadPicture").uploadFile(prtSC);
+        uploadPictureInput.uploadFile(prtSC);
 
         return this;
     }
 
     public PracticeFormPage setAddres(String address) {
-        $("#currentAddress").setValue(address);
+        currentAddressInput.setValue(address);
 
         return this;
     }
 
     public PracticeFormPage setState(String state) {
-        $("#state").click();
+        stateInput.click();
         $(byText(state)).click();
 
         return this;
     }
 
     public PracticeFormPage setCity(String city) {
-        $("#city").click();
+        cityInput.click();
         $(byText(city)).click();
 
         return this;
     }
 
     public void clickSubmit() {
-        $("#submit").click();
+        submitInput.click();
 
     }
 
