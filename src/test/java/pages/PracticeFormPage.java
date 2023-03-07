@@ -24,7 +24,8 @@ public class PracticeFormPage {
             currentAddressInput = $("#currentAddress"),
             stateInput = $("#state"),
             cityInput = $("#city"),
-            submitInput = $("#submit");
+            submitInput = $("#submit"),
+            dateOfBirthInputInput = $("#dateOfBirthInput");
 
 
     PracticalFormResults practicalFormResults = new PracticalFormResults();
@@ -75,10 +76,10 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage setDateOfBirth(String dataOfBerth) {
-        $("#dateOfBirthInput").sendKeys(Keys.CONTROL + "a");
-        $("#dateOfBirthInput").sendKeys(Keys.SPACE);
-        $("#dateOfBirthInput").sendKeys(Keys.LEFT);
-        $("#dateOfBirthInput").setValue(dataOfBerth).pressEnter();
+        dateOfBirthInputInput.sendKeys(Keys.CONTROL + "a");
+        dateOfBirthInputInput.sendKeys(Keys.SPACE);
+        dateOfBirthInputInput.sendKeys(Keys.LEFT);
+        dateOfBirthInputInput.setValue(dataOfBerth).pressEnter();
 
         return this;
     }
