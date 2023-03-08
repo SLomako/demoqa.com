@@ -89,7 +89,7 @@ public class ElementsTest{
     }
 
     @Test
-    void linksTest() {
+    void linksOpenNewTabTest() {
         /*
         $x("//span[text()='Links']").click();
         ElementsCollection href = $$x("//div[@id='linkWrapper']//a[@href]");
@@ -98,18 +98,24 @@ public class ElementsTest{
         for (int i = 0; i < 2; i++) {
             links.add(href.get(i).getAttribute("href"));
         }
+        System.out.println(links);
+        boolean b;
         for (int i = 0; i < links.size(); i++) {
             String linksUrl = links.get(i);
             open(linksUrl);
             String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
             assertEquals(currentUrl, linksUrl);
         }
-        int i = 0;
         */
-
-        sleep(4000);
-
     }
 
+    @Test
+    void linkApiCallTest() {
+        $x("//span[text()='Links']").click();
+        $x("//strong[text() ='Following links will send an api call']").shouldHave(text("api call"));
+        $x("//a[@id='created']").click();
+        $x("//p[@id='linkResponse']//b[text()='Created']").shouldHave(text("Created"));
+
+    }
 }
 
