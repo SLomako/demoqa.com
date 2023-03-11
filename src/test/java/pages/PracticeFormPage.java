@@ -3,9 +3,11 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarSetDateOfBirth;
 import pages.components.PracticalFormResults;
+import test.TestData;
 
 
 import java.io.File;
+import java.util.Date;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -48,21 +50,21 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setFirstName(String firstName) {
-        firstNameInput.setValue(firstName);
+    public PracticeFormPage setFirstName() {
+        firstNameInput.setValue(TestData.firstNameFaker);
 
 
         return this;
     }
 
-    public PracticeFormPage setLastName(String lastName) {
-        lastNameInput.setValue(lastName);
+    public PracticeFormPage setLastName() {
+        lastNameInput.setValue(TestData.lastNameFaker);
 
         return this;
     }
 
-    public PracticeFormPage setEmail(String email) {
-        userEmailInput.setValue(email);
+    public PracticeFormPage setEmail() {
+        userEmailInput.setValue(TestData.emailFaker);
 
         return this;
     }
@@ -73,13 +75,13 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setNumberPhone(String numberPhone) {
-        userNumberPhoneInput.setValue(numberPhone);
+    public PracticeFormPage setNumberPhone() {
+        userNumberPhoneInput.setValue(TestData.numberPhoneFaker);
 
         return this;
     }
-    public PracticeFormPage setDateOfBirth(String dateOfBirth) {
-        calendarSetDateOfBirth.setDateOfBirth(dateOfBirth);
+    public PracticeFormPage setDateOfBirth() {
+        calendarSetDateOfBirth.setDateOfBirth(TestData.setDate);
         return this;
     }
 
@@ -103,8 +105,8 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setAddres(String addres) {
-        currentAddressInput.setValue(addres);
+    public PracticeFormPage setAddress() {
+        currentAddressInput.setValue(TestData.addressFaker);
 
         return this;
     }
@@ -129,7 +131,7 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage shouldHaveResults(String key, String value) {
-        practicalFormResults.verifeResults(key, value);
+        practicalFormResults.verifyResults(key, value);
 
         return this;
     }
