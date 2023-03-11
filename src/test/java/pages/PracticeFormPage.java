@@ -1,8 +1,9 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.Keys;
+import pages.components.CalendarSetDateOfBirth;
 import pages.components.PracticalFormResults;
+
 
 import java.io.File;
 
@@ -11,6 +12,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormPage {
+
     private final static String TITLE_TEXT = "Practice Form";
     private final SelenideElement
             firstNameInput = $("#firstName"),
@@ -24,11 +26,12 @@ public class PracticeFormPage {
             currentAddressInput = $("#currentAddress"),
             stateInput = $("#state"),
             cityInput = $("#city"),
-            submitInput = $("#submit"),
-            dateOfBirthInputInput = $("#dateOfBirthInput");
+            submitInput = $("#submit");
+
 
 
     PracticalFormResults practicalFormResults = new PracticalFormResults();
+    CalendarSetDateOfBirth calendarSetDateOfBirth = new CalendarSetDateOfBirth();
 
     public PracticeFormPage openPage() {
         $x("//div[@class='card-body']/h5[text()='Forms']").click();
@@ -45,8 +48,9 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setFirstName(String name) {
-        firstNameInput.setValue(name);
+    public PracticeFormPage setFirstName(String firstName) {
+        firstNameInput.setValue(firstName);
+
 
         return this;
     }
@@ -69,20 +73,16 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setNumberPhone(String numPhone) {
-        userNumberPhoneInput.setValue(numPhone);
+    public PracticeFormPage setNumberPhone(String numberPhone) {
+        userNumberPhoneInput.setValue(numberPhone);
 
         return this;
     }
-
-    public PracticeFormPage setDateOfBirth(String dataOfBerth) {
-        dateOfBirthInputInput.sendKeys(Keys.CONTROL + "a");
-        dateOfBirthInputInput.sendKeys(Keys.SPACE);
-        dateOfBirthInputInput.sendKeys(Keys.LEFT);
-        dateOfBirthInputInput.setValue(dataOfBerth).pressEnter();
-
+    public PracticeFormPage setDateOfBirth(String dateOfBirth) {
+        calendarSetDateOfBirth.setDateOfBirth(dateOfBirth);
         return this;
     }
+
 
     public PracticeFormPage setSubjects(String subjects) {
         subjectsInput.setValue(subjects).pressEnter();
@@ -103,8 +103,8 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setAddres(String address) {
-        currentAddressInput.setValue(address);
+    public PracticeFormPage setAddres(String addres) {
+        currentAddressInput.setValue(addres);
 
         return this;
     }
@@ -133,4 +133,6 @@ public class PracticeFormPage {
 
         return this;
     }
+
 }
+

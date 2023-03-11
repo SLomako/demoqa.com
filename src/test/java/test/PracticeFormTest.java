@@ -1,21 +1,23 @@
 package test;
 
 import org.junit.jupiter.api.Test;
-
 import pages.PracticeFormPage;
 
 
+
 public class PracticeFormTest extends TestBase {
+
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
     @Test
     void fillStudentRegistrationForm() {
-        practiceFormPage.openPage().removeBanners()
+        practiceFormPage.openPage()
+                .removeBanners()
                 .setFirstName("Sergei")
                 .setLastName("Lomako")
                 .setEmail("lomakosv@gmail.com")
                 .setGender("Male")
-                .setNumberPhone("0123456789")
+                .setNumberPhone("1234567890")
                 .setSubjects("English")
                 .setDateOfBirth("11.16.1986")
                 .setHobbies("Sports")
@@ -29,7 +31,7 @@ public class PracticeFormTest extends TestBase {
         practiceFormPage.shouldHaveResults("Student Name", "Sergei Lomako")
                 .shouldHaveResults("Student Email", "lomakosv@gmail.com")
                 .shouldHaveResults("Gender", "Male")
-                .shouldHaveResults("Mobile", "0123456789")
+                .shouldHaveResults("Mobile", "1234567890")
                 .shouldHaveResults("Date of Birth", "16 November,1986")
                 .shouldHaveResults("Subjects", "English")
                 .shouldHaveResults("Hobbies", "Sports, Music")
