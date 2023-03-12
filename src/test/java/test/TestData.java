@@ -1,7 +1,7 @@
 package test;
 
-import Utils.RandomStringUtils;
-import Utils.RandomDateCalendarUtil;
+import utils.RandomStringUtils;
+import utils.RandomDateCalendarUtil;
 import com.github.javafaker.Faker;
 
 import java.util.Map;
