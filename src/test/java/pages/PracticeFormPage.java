@@ -2,7 +2,6 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
-import test.TestData;
 import java.io.File;
 
 
@@ -43,21 +42,20 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setFirstName() {
-        firstNameInput.setValue(TestData.firstNameFaker);
-
-
-        return this;
-    }
-
-    public PracticeFormPage setLastName() {
-        lastNameInput.setValue(TestData.lastNameFaker);
+    public PracticeFormPage setFirstName(String firstName) {
+        firstNameInput.setValue(firstName);
 
         return this;
     }
 
-    public PracticeFormPage setEmail() {
-        userEmailInput.setValue(TestData.emailFaker);
+    public PracticeFormPage setLastName(String lastName) {
+        lastNameInput.setValue(lastName);
+
+        return this;
+    }
+
+    public PracticeFormPage setEmail(String email) {
+        userEmailInput.setValue(email);
 
         return this;
     }
@@ -68,13 +66,13 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setNumberPhone() {
-        userNumberPhoneInput.setValue(TestData.numberPhoneFaker);
+    public PracticeFormPage setNumberPhone(String numberPhone) {
+        userNumberPhoneInput.setValue(numberPhone);
 
         return this;
     }
-    public PracticeFormPage setDateOfBirth() {
-        calendarComponent.setDate(TestData.randomDateCalendar.dateA);
+    public PracticeFormPage setDateOfBirth(String dateOfBirth) {
+        calendarComponent.setDate(dateOfBirth);
 
         return this;
     }
@@ -99,8 +97,8 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setAddress() {
-        currentAddressInput.setValue(TestData.addressFaker);
+    public PracticeFormPage setAddress(String address ) {
+        currentAddressInput.setValue(address);
 
         return this;
     }

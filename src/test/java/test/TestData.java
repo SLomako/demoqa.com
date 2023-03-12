@@ -8,11 +8,14 @@ public class TestData {
     static Faker faker = new Faker();
 
     public static final String
-            firstNameFaker = faker.name().firstName(),
-            lastNameFaker = faker.name().lastName(),
-            emailFaker = faker.internet().emailAddress(),
-            addressFaker = faker.address().fullAddress(),
-            numberPhoneFaker = "7" + faker.number().randomNumber(9, true);
+            firstNameRandom = faker.name().firstName(),
+            lastNameRandom = faker.name().lastName(),
+            emailRandom = faker.internet().emailAddress(),
+            addressRandom = faker.address().fullAddress(),
+            numberPhoneRandom = "7" + faker.number().randomNumber(9, true),
+            dateBirthOfDayRandomA = randomDateCalendar.dateA,
+            dateBirthOfDayRandomB = randomDateCalendar.dateB;
+
 
 
      public String getRandomGender() {

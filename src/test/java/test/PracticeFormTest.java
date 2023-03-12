@@ -2,12 +2,15 @@ package test;
 
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
-import pages.components.PracticalFormResults;
+import pages.components.PracticalFormResultModal;
+
+import static test.TestData.*;
 
 public class PracticeFormTest extends TestBase {
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
-    PracticalFormResults practicalFormResults = new PracticalFormResults();
+    PracticalFormResultModal practicalFormResultModal = new PracticalFormResultModal();
+
 
     @Test
     void fillStudentRegistrationForm() {
@@ -16,31 +19,30 @@ public class PracticeFormTest extends TestBase {
 
         practiceFormPage.openPage()
                 .removeBanners()
-                .setFirstName()
-                .setLastName()
-                .setEmail()
+                .setFirstName(firstNameRandom)
+                .setLastName(lastNameRandom)
+                .setEmail(emailRandom)
                 .setGender(randomGender)
-                .setNumberPhone()
+                .setNumberPhone(numberPhoneRandom)
                 .setSubjects("English")
-                .setDateOfBirth()
+                .setDateOfBirth(dateBirthOfDayRandomA)
                 .setHobbies("Sports")
                 .setHobbies("Music")
                 .setUploudPicture("src/test/resources/pictures/prt_sc.png")
-                .setAddress()
+                .setAddress(addressRandom)
                 .setState("NCR")
                 .setCity("Delhi")
                 .clickSubmit();
-        String g = TestData.firstNameFaker + " " + TestData.lastNameFaker;
-        String b = TestData.emailFaker;
-        practicalFormResults.verifyResults("Student Name",g)
-                .verifyResults("Student Email",b)
+
+        practicalFormResultModal.verifyResults("Student Name", firstNameRandom + " " + lastNameRandom)
+                .verifyResults("Student Email", emailRandom)
                 .verifyResults("Gender", randomGender)
-                .verifyResults("Mobile", TestData.numberPhoneFaker)
-                .verifyResults("Date of Birth", TestData.randomDateCalendar.dateB)
+                .verifyResults("Mobile", numberPhoneRandom)
+                .verifyResults("Date of Birth", dateBirthOfDayRandomB)
                 .verifyResults("Subjects", "English")
                 .verifyResults("Hobbies", "Sports, Music")
                 .verifyResults("Picture", "prt_sc.png")
-                .verifyResults("Address", TestData.addressFaker)
+                .verifyResults("Address", addressRandom)
                 .verifyResults("State and City", "NCR Delhi");
     }
 }
