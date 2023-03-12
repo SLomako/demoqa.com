@@ -19,27 +19,26 @@ public class PracticeFormTest extends TestBase {
                 .setFirstName(firstNameRandom)
                 .setLastName(lastNameRandom)
                 .setEmail(emailRandom)
-                .setGender(genderRandom)
+                .setGender(genderRandomOffered)
                 .setNumberPhone(numberPhoneRandom)
-                .setSubjects("English")
+                .setSubjects(subjectsRandomOffered)
                 .setDateOfBirth(dateBirthOfDayRandomA)
-                .setHobbies("Sports")
-                .setHobbies("Music")
-                .setUploudPicture("src/test/resources/pictures/prt_sc.png")
+                .setHobbies(hobbiesRandomOffered)
+                .setUploudPicture(fileUploud)
                 .setAddress(addressRandom)
-                .setState("NCR")
-                .setCity("Delhi")
+                .setState(stateRandomOffered)
+                .setCity(cityRandomOffered)
                 .clickSubmit();
 
         practicalFormResultModal.verifyResults("Student Name", firstNameRandom + " " + lastNameRandom)
                 .verifyResults("Student Email", emailRandom)
-                .verifyResults("Gender", genderRandom)
+                .verifyResults("Gender", genderRandomOffered)
                 .verifyResults("Mobile", numberPhoneRandom)
                 .verifyResults("Date of Birth", dateBirthOfDayRandomB)
-                .verifyResults("Subjects", "English")
-                .verifyResults("Hobbies", "Sports, Music")
+                .verifyResults("Subjects", subjectsRandomOffered)
+                .verifyResults("Hobbies", hobbiesRandomOffered)
                 .verifyResults("Picture", "prt_sc.png")
                 .verifyResults("Address", addressRandom)
-                .verifyResults("State and City", "NCR Delhi");
+                .verifyResults("State and City", stateRandomOffered + " " + cityRandomOffered);
     }
 }
