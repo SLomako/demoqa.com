@@ -1,21 +1,16 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.CalendarSetDateOfBirth;
-import pages.components.PracticalFormResults;
+import pages.components.CalendarComponent;
 import test.TestData;
-
-
 import java.io.File;
-import java.util.Date;
 
-import static com.codeborne.selenide.Condition.text;
+
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormPage {
 
-    private final static String TITLE_TEXT = "Practice Form";
     private final SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -31,14 +26,12 @@ public class PracticeFormPage {
             submitInput = $("#submit");
 
 
-
-    PracticalFormResults practicalFormResults = new PracticalFormResults();
-    CalendarSetDateOfBirth calendarSetDateOfBirth = new CalendarSetDateOfBirth();
+    CalendarComponent calendarComponent = new CalendarComponent();
 
     public PracticeFormPage openPage() {
         $x("//div[@class='card-body']/h5[text()='Forms']").click();
         $x("//span[@class='text'][text()='Practice Form']").click();
-        $(".main-header").shouldHave(text(TITLE_TEXT));
+
 
         return this;
     }
@@ -81,7 +74,8 @@ public class PracticeFormPage {
         return this;
     }
     public PracticeFormPage setDateOfBirth() {
-        calendarSetDateOfBirth.setDateOfBirth(TestData.setDate);
+        calendarComponent.setDate(TestData.randomDateCalendar.dateA);
+
         return this;
     }
 
@@ -128,12 +122,6 @@ public class PracticeFormPage {
     public void clickSubmit() {
         submitInput.click();
 
-    }
-
-    public PracticeFormPage shouldHaveResults(String key, String value) {
-        practicalFormResults.verifyResults(key, value);
-
-        return this;
     }
 
 }

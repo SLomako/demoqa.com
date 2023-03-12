@@ -10,8 +10,9 @@ public class PracticalFormResults {
 
     private final SelenideElement resultTable = $(".table-responsive");
 
-    public void verifyResults(String key, String value) {
+    public PracticalFormResults verifyResults(String key, String value) {
         resultTable.$(byText(key)).parent().shouldHave(text(value));
+        return this;
 
     }
 }

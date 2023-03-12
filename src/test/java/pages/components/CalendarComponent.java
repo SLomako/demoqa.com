@@ -4,16 +4,16 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 import static com.codeborne.selenide.Selenide.$;
 
-public class CalendarSetDateOfBirth {
+public class CalendarComponent {
 
     private final SelenideElement
             dateOfBirthInputInput = $("#dateOfBirthInput");
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDate(String date) {
         dateOfBirthInputInput.sendKeys(Keys.CONTROL + "a");
         dateOfBirthInputInput.sendKeys(Keys.SPACE);
         dateOfBirthInputInput.sendKeys(Keys.LEFT);
-        dateOfBirthInputInput.setValue(dateOfBirth).pressEnter();
+        dateOfBirthInputInput.setValue(date).pressEnter();
 
     }
 }
