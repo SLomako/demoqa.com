@@ -24,7 +24,7 @@ public class PracticeFormTest extends TestBase {
                 .setSubjects(subjectsRandomOffered)
                 .setDateOfBirth(dateBirthOfDayRandomA)
                 .setHobbies(hobbiesRandomOffered)
-                .setUploudPicture(fileUploud)
+                .setUploadPicture(file)
                 .setAddress(addressRandom)
                 .setState(stateRandomOffered)
                 .setCity(cityRandomOffered)

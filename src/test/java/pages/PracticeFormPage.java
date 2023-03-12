@@ -58,8 +58,8 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setGender(String genter) {
-        genderWrapperInput.$(byText(genter)).click();
+    public PracticeFormPage setGender(String gender) {
+        genderWrapperInput.$(byText(gender)).click();
 
         return this;
     }
@@ -89,7 +89,7 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setUploudPicture(String path) {
+    public PracticeFormPage setUploadPicture(String path) {
         File prtSC = new File(path);
         uploadPictureInput.uploadFile(prtSC);
 
