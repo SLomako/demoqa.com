@@ -2,8 +2,8 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
-import java.io.File;
 
+import java.io.File;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -24,13 +24,11 @@ public class PracticeFormPage {
             cityInput = $("#city"),
             submitInput = $("#submit");
 
-
     CalendarComponent calendarComponent = new CalendarComponent();
 
     public PracticeFormPage openPage() {
         $x("//div[@class='card-body']/h5[text()='Forms']").click();
         $x("//span[@class='text'][text()='Practice Form']").click();
-
 
         return this;
     }
@@ -71,6 +69,7 @@ public class PracticeFormPage {
 
         return this;
     }
+
     public PracticeFormPage setDateOfBirth(String dateOfBirth) {
         calendarComponent.setDate(dateOfBirth);
 
@@ -97,7 +96,7 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setAddress(String address ) {
+    public PracticeFormPage setAddress(String address) {
         currentAddressInput.setValue(address);
 
         return this;
