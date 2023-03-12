@@ -11,18 +11,15 @@ public class PracticeFormTest extends TestBase {
     PracticeFormPage practiceFormPage = new PracticeFormPage();
     PracticalFormResultModal practicalFormResultModal = new PracticalFormResultModal();
 
-
     @Test
     void fillStudentRegistrationForm() {
-        TestData testData = new TestData();
-        String randomGender = testData.getRandomGender();
 
         practiceFormPage.openPage()
                 .removeBanners()
                 .setFirstName(firstNameRandom)
                 .setLastName(lastNameRandom)
                 .setEmail(emailRandom)
-                .setGender(randomGender)
+                .setGender(genderRandom)
                 .setNumberPhone(numberPhoneRandom)
                 .setSubjects("English")
                 .setDateOfBirth(dateBirthOfDayRandomA)
@@ -36,7 +33,7 @@ public class PracticeFormTest extends TestBase {
 
         practicalFormResultModal.verifyResults("Student Name", firstNameRandom + " " + lastNameRandom)
                 .verifyResults("Student Email", emailRandom)
-                .verifyResults("Gender", randomGender)
+                .verifyResults("Gender", genderRandom)
                 .verifyResults("Mobile", numberPhoneRandom)
                 .verifyResults("Date of Birth", dateBirthOfDayRandomB)
                 .verifyResults("Subjects", "English")

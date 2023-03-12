@@ -5,12 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class RandomDateCalendar {
+public class RandomDateCalendarUtil {
 
     public final String dateA;
     public final String dateB;
 
-    public RandomDateCalendar() {
+    public RandomDateCalendarUtil() {
 
         Faker faker = new Faker();
         Date randomDateFaker = faker.date().birthday();

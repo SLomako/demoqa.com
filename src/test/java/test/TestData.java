@@ -1,11 +1,13 @@
 package test;
 
-import Utils.RandomDateCalendar;
+import Utils.RandomArrayUtils;
+import Utils.RandomDateCalendarUtil;
 import com.github.javafaker.Faker;
 
 public class TestData {
-    public static RandomDateCalendar randomDateCalendar = new RandomDateCalendar();
+    public static RandomDateCalendarUtil randomDateCalendarUtil = new RandomDateCalendarUtil();
     static Faker faker = new Faker();
+    static RandomArrayUtils randomArrayUtils = new RandomArrayUtils();
 
     public static final String
             firstNameRandom = faker.name().firstName(),
@@ -13,17 +15,13 @@ public class TestData {
             emailRandom = faker.internet().emailAddress(),
             addressRandom = faker.address().fullAddress(),
             numberPhoneRandom = "7" + faker.number().randomNumber(9, true),
-            dateBirthOfDayRandomA = randomDateCalendar.dateA,
-            dateBirthOfDayRandomB = randomDateCalendar.dateB;
+            dateBirthOfDayRandomA = randomDateCalendarUtil.dateA,
+            dateBirthOfDayRandomB = randomDateCalendarUtil.dateB,
+            genderRandom = randomArrayUtils.getRandomGender();
 
 
 
-     public String getRandomGender() {
 
-        String[] gender = new String[]{"Male", "Female", "Other"};
-        int n = (int) Math.floor(Math.random() * gender.length);
-        return gender[n];
-    }
 }
 
 
