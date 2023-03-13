@@ -8,8 +8,8 @@ import java.util.Locale;
 
 public class RandomDateCalendarUtil {
 
-    public final String dateA;
-    public final String dateB;
+    protected final String dateA;
+    protected final String dateB;
 
     public RandomDateCalendarUtil() {
 
@@ -19,5 +19,13 @@ public class RandomDateCalendarUtil {
         SimpleDateFormat simpleDateFormatDateB = new SimpleDateFormat("dd MMMM,yyyy", Locale.ENGLISH);
         dateA = simpleDateFormatDateA.format(randomDateFaker);
         dateB = simpleDateFormatDateB.format(randomDateFaker);
+    }
+
+    public String getDateA() {
+        return dateA;
+    }
+
+    public String getDateB() {
+        return dateB;
     }
 }
